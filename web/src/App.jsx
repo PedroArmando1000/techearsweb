@@ -11,7 +11,7 @@ import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 import 'primeicons/primeicons.css';
 
-// COMENTARIO
+// COMENTARIOAFKEFJFEWJDSFDSFJS
 const App = ({ children }) => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
