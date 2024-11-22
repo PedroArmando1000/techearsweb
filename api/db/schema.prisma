@@ -1,0 +1,59 @@
+// Don't forget to tell Prisma about your edits to this file using
+// `yarn rw prisma migrate dev` or `yarn rw prisma db push`.
+// `migrate` is like committing while `push` is for prototyping.
+// Read more about both here:
+// https://www.prisma.io/docs/orm/prisma-migrate
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+model UserExample {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+
+model Filiais {
+  id               Int       @id @default(autoincrement())
+  nome             String
+  codigo           String    @unique
+  latlong          Float[]
+  dataCadastro     DateTime?
+  logradouro       String?
+  numero           String?
+  nomeDoLogradouro String?
+  bairro           String?
+  cidade           String?
+  estado           String?
+  pais             String?   @default("Brasil")
+}
+
+model Funcionarios {
+  id     Int    @id @default(autoincrement())
+  nome   String
+  rg     String @unique
+  cpf    String @unique
+  idade  Int
+  altura Float
+  sexo   String
+}
+
+model Usuarios {
+  id                  Int       @id @default(autoincrement())
+  nome                String
+  email               String
+  senha               String
+  ativo               Boolean?  @default(true)
+  endereco            String?
+  foto                Bytes?
+  ultimoAcesso        DateTime?
+  cabecalhoBase64Foto String?
+  palavraChave        String?
+}
